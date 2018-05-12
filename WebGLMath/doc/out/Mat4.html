@@ -86,7 +86,7 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="Mat4"><span class="type-signature"></span>new Mat4( [m])</h4>
+    <h4 class="name" id="Mat4"><span class="type-signature"></span>new Mat4( [m] [, m01] [, m02] [, m03] [, m10] [, m11] [, m12] [, m13] [, m20] [, m21] [, m22] [, m23] [, m30] [, m31] [, m32] [, m33])</h4>
     
     
 </dt>
@@ -143,6 +143,9 @@
 |
 
 <span class="param-type">Array</span>
+|
+
+<span class="param-type">number</span>
 
 
 
@@ -169,7 +172,607 @@
                 </td>
             
 
-            <td class="description last">Matrix to copy elements from, or array of elements in row-major format.</td>
+            <td class="description last">Matrix to copy elements from, or array of elements in row-major format, or matrix element in row 0, column 0.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m01</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 0, column 1.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m02</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 0, column 2.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m03</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 0, column 3.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m10</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 1, column 0.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m11</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 1, column 1.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m12</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 1, column 2.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m13</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 1, column 3.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m20</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 2, column 0.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m21</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 2, column 1.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m22</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 2, column 2.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m23</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 2, column 3.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m30</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 3, column 0.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m31</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 3, column 1.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m32</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 3, column 2.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m33</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 3, column 3.</td>
         </tr>
 
     
@@ -1511,7 +2114,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="set"><span class="type-signature"></span>set(m)</h4>
+    <h4 class="name" id="set"><span class="type-signature"></span>set( [m] [, m01] [, m02] [, m03] [, m10] [, m11] [, m12] [, m13] [, m20] [, m21] [, m22] [, m23] [, m30] [, m31] [, m32] [, m33])</h4>
     
     
 </dt>
@@ -1542,7 +2145,11 @@
         <th>Type</th>
 
         
+        <th>Argument</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -1564,6 +2171,9 @@
 |
 
 <span class="param-type">Array</span>
+|
+
+<span class="param-type">number</span>
 
 
 
@@ -1571,10 +2181,626 @@
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
             
 
-            <td class="description last">Matrix to copy elements from, or array of elements in row-major format. @default identity</td>
+            
+                <td class="default">
+                
+                    identity
+                
+                </td>
+            
+
+            <td class="description last">Matrix to copy elements from, or array of elements in row-major format, or matrix element in row 0, column 0.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m01</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 0, column 1.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m02</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 0, column 2.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m03</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 0, column 3.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m10</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 1, column 0.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m11</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 1, column 1.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m12</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 1, column 2.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m13</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 1, column 3.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m20</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 2, column 0.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m21</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 2, column 1.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m22</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 2, column 2.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m23</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 2, column 3.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m30</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 3, column 0.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m31</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 3, column 1.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m32</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 3, column 2.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>m33</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last">Matrix element in the row 3, column 3.</td>
         </tr>
 
     
@@ -2072,7 +3298,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
 	
-		on 2017-03-09T23:10:53+01:00
+		on 2018-01-24T10:36:39+01:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

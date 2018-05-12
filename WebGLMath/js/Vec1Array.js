@@ -2,28 +2,36 @@
  * @file WebGLMath Vec1Array class
  * @copyright Laszlo Szecsi 2017
  */
-
+"use strict";
 /**
  * @class Vec1Array
  * @extends VecArray
  * @classdesc Array of 32-bit floats. May reflect an ESSL array-of-floats uniform variable.
- * <BR> Individual [Vec1]{@link Vec1} elements are available through the index operator [].
+ * <BR> Individual [Vec1]{@link Vec1} elements are available through the [at]{@link Vec1Array#at} method.
  * Methods are available for optimized bulk processing.
  * @param {Number} size - The number of Vec1 elements in the array.
  * @constructor
  */
-var Vec1Array = function(size){
+const Vec1Array = function(size){
   this.length = size;
   this.storage = new Float32Array(size);
-  for(var i=0; i<size; i++){
-    var proxy = Object.create(Vec1.prototype);
-    proxy.storage = this.storage.subarray(i, (i+1));
-    Object.defineProperty(this, i, {value: proxy} );
-  }
 };
 
 Vec1Array.prototype = Object.create(VecArray.prototype);
 Vec1Array.prototype.constructor = Vec1Array;
+
+/**
+ * @method at
+ * @memberof Vec1Array.prototype  
+ * @description Returns a new Vec1 object that captures an element of the array. The new vector is a view on the original data, not a copy.
+ * @param index {Number} - Index of the element.
+ * @return {Vec1} new view on one of the array's elements
+ */
+Vec1Array.prototype.at = function(index){
+  const result = Object.create(Vec1.prototype);
+  result.storage = this.storage.subarray(index, index+1);
+  return result;  
+}
 
 /**
  * @method subarray
@@ -34,7 +42,7 @@ Vec1Array.prototype.constructor = Vec1Array;
  * @return {Vec1Array} new view on some of the array's elements
  */
 Vec1Array.prototype.subarray = function(begin, end){
-  var result = Object.create(Vec1Array.prototype);
+  const result = Object.create(Vec1Array.prototype);
   result.storage = this.storage.subarray(begin, end);
   return result;
 };
@@ -48,8 +56,8 @@ Vec1Array.prototype.subarray = function(begin, end){
  * @return this
  */
 Vec1Array.prototype.dotVec2s = function(b, c) {
-  var j=0;
-  for(var i=0; i<this.storage.length; i++) {
+  let j=0;
+  for(let i=0; i<this.storage.length; i++) {
     this.storage[i] = b.storage[j] * c.storage[j++] + b.storage[j] * c.storage[j++];
   }
   return this;
@@ -64,8 +72,8 @@ Vec1Array.prototype.dotVec2s = function(b, c) {
  * @return this
  */
 Vec1Array.prototype.dotVec3s = function(b, c) {
-  var j=0;
-  for(var i=0; i<this.storage.length; i++) {
+  let j=0;
+  for(let i=0; i<this.storage.length; i++) {
     this.storage[i] = b.storage[j] * c.storage[j++] + b.storage[j] * c.storage[j++] + b.storage[j] * c.storage[j++];
   }
   return this;
@@ -80,8 +88,8 @@ Vec1Array.prototype.dotVec3s = function(b, c) {
  * @return this
  */
 Vec1Array.prototype.dotVec3s = function(b, c) {
-  var j=0;
-  for(var i=0; i<this.storage.length; i++) {
+  let j=0;
+  for(let i=0; i<this.storage.length; i++) {
     this.storage[i] = b.storage[j] * c.storage[j++] + b.storage[j] * c.storage[j++] + b.storage[j] * c.storage[j++] + b.storage[j] * c.storage[j++];
   }
   return this;
@@ -99,11 +107,11 @@ Vec1Array.prototype.dotVec3s = function(b, c) {
  * @return {Vec1Array} this
  */
 Vec1Array.prototype.dotAllVec2s = function(b, c) {
-  var j=0;
-  var k=0;
-  for(var i=0; i<this.storage.length; i++) {
+  let j=0;
+  let k=0;
+  for(let i=0; i<this.storage.length; i++) {
     this.storage[i] = b.storage[j++] * c.storage[k] + b.storage[j++] * c.storage[k+1];
-    if(b === c.storage.length) {
+    if(j === c.storage.length) {
     	j = 0; k+=2;
     }
   }
@@ -122,11 +130,11 @@ Vec1Array.prototype.dotAllVec2s = function(b, c) {
  * @return {Vec1Array} this
  */
 Vec1Array.prototype.dotAllVec3s = function(b, c) {
-  var j=0;
-  var k=0;
-  for(var i=0; i<this.storage.length; i++) {
+  let j=0;
+  let k=0;
+  for(let i=0; i<this.storage.length; i++) {
     this.storage[i] = b.storage[j++] * c.storage[k] + b.storage[j++] * c.storage[k+1] + b.storage[j++] * c.storage[k+2];
-    if(b === c.storage.length) {
+    if(j === c.storage.length) {
       j = 0; k+=3;
     }
   }
@@ -145,11 +153,11 @@ Vec1Array.prototype.dotAllVec3s = function(b, c) {
  * @return {Vec1Array} this
  */
 Vec1Array.prototype.dotAllVec4s = function(b, c) {
-  var j=0;
-  var k=0;
-  for(var i=0; i<this.storage.length; i++) {
+  let j=0;
+  let k=0;
+  for(let i=0; i<this.storage.length; i++) {
     this.storage[i] = b.storage[j++] * c.storage[k] + b.storage[j++] * c.storage[k+1] + b.storage[j++] * c.storage[k+2] + b.storage[j++] * c.storage[k+3];
-    if(b === c.storage.length) {
+    if(j === c.storage.length) {
       j = 0; k+=4;
     }
   }
@@ -164,8 +172,8 @@ Vec1Array.prototype.dotAllVec4s = function(b, c) {
  * @return this
  */
 Vec1Array.prototype.lengthOfVec2 = function(b) {
-  var j=0;
-  for(var i=0; i<this.storage.length; i++) {
+  let j=0;
+  for(let i=0; i<this.storage.length; i++) {
     this.storage[i] = Math.sqrt(b.storage[j] * b.storage[j++] + b.storage[j] * b.storage[j++]);
   }
   return this;
@@ -179,8 +187,8 @@ Vec1Array.prototype.lengthOfVec2 = function(b) {
  * @return this
  */
 Vec1Array.prototype.lengthOfVec3 = function(b) {
-  var j=0;
-  for(var i=0; i<this.storage.length; i++) {
+  let j=0;
+  for(let i=0; i<this.storage.length; i++) {
     this.storage[i] = Math.sqrt(b.storage[j] * b.storage[j++] + b.storage[j] * b.storage[j++] + b.storage[j] * b.storage[j++]);
   }
   return this;
@@ -194,8 +202,8 @@ Vec1Array.prototype.lengthOfVec3 = function(b) {
  * @return this
  */
 Vec1Array.prototype.lengthOfVec4 = function(b) {
-  var j=0;
-  for(var i=0; i<this.storage.length; i++) {
+  let j=0;
+  for(let i=0; i<this.storage.length; i++) {
     this.storage[i] = Math.sqrt(b.storage[j] * b.storage[j++] + b.storage[j] * b.storage[j++] + b.storage[j] * b.storage[j++] + b.storage[j] * b.storage[j++]);
   }
   return this;
@@ -211,3 +219,8 @@ Vec1Array.prototype.lengthOfVec4 = function(b) {
 Vec1Array.prototype.commit = function(gl, uniformLocation){
   gl.uniform1fv(uniformLocation, this.storage);
 };
+
+// CommonJS style export to allow file to be required in server side node.js
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined'){
+  module.exports = Vec1Array;
+}

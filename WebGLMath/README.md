@@ -30,7 +30,7 @@ is about three times faster. Variable `a` needs to exist, and be a vector object
 
 If `a`, `b` and `c` are vector instances of similar length,
 ```javascript
-a.$add(b, c);
+a.setSum(b, c);
 ```
 can be used for optimum performance. It is seven times faster than `a.set(b).add(c);`, or twenty times faster than `a = b.plus(c);`.
 

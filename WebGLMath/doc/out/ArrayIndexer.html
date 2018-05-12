@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Documentation Class: SamplerCube</title>
+	<title>Documentation Class: ArrayIndexer</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -33,7 +33,7 @@
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu ">
-					<li><a href="Mat4.html">Mat4</a></li><li><a href="Mat4Array.html">Mat4Array</a></li><li><a href="Sampler2D.html">Sampler2D</a></li><li><a href="Sampler2DArray.html">Sampler2DArray</a></li><li><a href="SamplerCube.html">SamplerCube</a></li><li><a href="SamplerCubeArray.html">SamplerCubeArray</a></li><li><a href="UniformReflectionFactories.html">UniformReflectionFactories</a></li><li><a href="Vec1.html">Vec1</a></li><li><a href="Vec1Array.html">Vec1Array</a></li><li><a href="Vec2.html">Vec2</a></li><li><a href="Vec2Array.html">Vec2Array</a></li><li><a href="Vec3.html">Vec3</a></li><li><a href="Vec3Array.html">Vec3Array</a></li><li><a href="Vec4.html">Vec4</a></li><li><a href="Vec4Array.html">Vec4Array</a></li><li><a href="VecArray.html">VecArray</a></li>
+					<li><a href="ArrayIndexer.html">ArrayIndexer</a></li><li><a href="Mat4.html">Mat4</a></li><li><a href="Mat4Array.html">Mat4Array</a></li><li><a href="Sampler2D.html">Sampler2D</a></li><li><a href="Sampler2DArray.html">Sampler2DArray</a></li><li><a href="SamplerCube.html">SamplerCube</a></li><li><a href="SamplerCubeArray.html">SamplerCubeArray</a></li><li><a href="UniformReflectionFactories.html">UniformReflectionFactories</a></li><li><a href="Vec1.html">Vec1</a></li><li><a href="Vec1Array.html">Vec1Array</a></li><li><a href="Vec2.html">Vec2</a></li><li><a href="Vec2Array.html">Vec2Array</a></li><li><a href="Vec3.html">Vec3</a></li><li><a href="Vec3Array.html">Vec3Array</a></li><li><a href="Vec4.html">Vec4</a></li><li><a href="Vec4Array.html">Vec4Array</a></li><li><a href="VecArray.html">VecArray</a></li>
 				</ul>
 			</li>
 			
@@ -65,16 +65,16 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Class: SamplerCube</h1>
+	<h1 class="page-title">Class: ArrayIndexer</h1>
 <section>
 
 <header>
     
         <h2>
-        SamplerCube
+        ArrayIndexer
         </h2>
         
-            <div class="class-description">Stores a WebGL texture unit index, and a WebGL texture to be bound to it. May reflect an ESSL samplerCube uniform variable.</div>
+            <div class="class-description">A prototype for all vector and matrix arrays. It is a proxy that catches access to property accesses with integer keys, returning an appropriate vector or matrix object wrapping the corresponding typed data in the array.</div>
         
     
 </header>
@@ -86,73 +86,19 @@
         
 <hr>
 <dt>
-    <h4 class="name" id="SamplerCube"><span class="type-signature"></span>new SamplerCube(textureUnit)</h4>
+    <h4 class="name" id="ArrayIndexer"><span class="type-signature"></span>new ArrayIndexer()</h4>
     
     
 </dt>
 <dd>
 
     
-    <div class="description">
-        Creates object.
-    </div>
-    
 
     
 
     
 
     
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>textureUnit</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The texture unit index. This should be different for every texture used in the same program, and less than the maximum texture unit count, which is at least 8 in WebGL.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
     
 
     
@@ -225,293 +171,6 @@
 
     
 
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        <dl>
-            
-<hr>
-<dt>
-    <h4 class="name" id="commit"><span class="type-signature"></span>commit(gl, uniformLocation)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Sets the value of the texture unit index to the WebGL samplerCube uniform variable, and binds the texture to the corresponding texture unit.
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>gl</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">WebGLRenderingContext</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">rendering context</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>uniformLocation</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">WebGLUniformLocation</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">location of the uniform variable in the currently used WebGL program</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="set"><span class="type-signature"></span>set(texture)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Assigns a texture.
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>texture</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-|
-
-<span class="param-type">WebGLTexture</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">A WebGL texture, or any object with the `glTexture` property that stores a WebGL texture.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        </dl>
     
 
     
@@ -561,7 +220,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
 	
-		on 2018-01-24T10:36:39+01:00
+		on 2017-09-14T09:13:14+02:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

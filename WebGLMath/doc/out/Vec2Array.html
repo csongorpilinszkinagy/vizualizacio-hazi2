@@ -74,7 +74,7 @@
         Vec2Array
         </h2>
         
-            <div class="class-description">Array of two-element vectors of 32-bit floats. May reflect an ESSL array-of-vec2s uniform variable.<BR> Individual <a href="Vec2.html">Vec2</a> elements are available through the index operator [].Methods are available for optimized bulk processing.</div>
+            <div class="class-description">Array of two-element vectors of 32-bit floats. May reflect an ESSL array-of-vec2s uniform variable.<BR> Individual <a href="Vec2.html">Vec2</a> elements are available through the <a href="Vec2Array.html#at">at</a> method.Methods are available for optimized bulk processing.</div>
         
     
 </header>
@@ -609,6 +609,367 @@
             
 <hr>
 <dt>
+    <h4 class="name" id="addScaled"><span class="type-signature"></span>addScaled(b, c, dt)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Adds vectors from the two argument arrays, scaling the second arguments, storing the result in this array.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="VecArray.html">VecArray</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array of first terms. Its length must be identical to this array's length.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>c</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="VecArray.html">VecArray</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array of second terms. Its length must be identical to this array's length.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dt</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Single scalar scaling factor.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="VecArray.html#addScaled">VecArray#addScaled</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    this
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="VecArray.html">VecArray</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="at"><span class="type-signature"></span>at(index)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns a new Vec2 object that captures an element of the array. The new vector is a view on the original data, not a copy.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Index of the element.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    new view on one of the array's elements
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Vec2.html">Vec2</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
     <h4 class="name" id="clamp"><span class="type-signature"></span>clamp()</h4>
     
     
@@ -864,6 +1225,158 @@
     
 
     
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="cossin"><span class="type-signature"></span>cossin(alphas)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Fills this array with (cos alpha, sin alpha) vectors, where alpha comes from the argument array.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>alphas</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Vec1Array.html">Vec1Array</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array of angles.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    this
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Vec2Array.html">Vec2Array</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -1349,6 +1862,191 @@
 		<ul class="dummy">
 			<li>
 				<a href="VecArray.html#divWithVec1s">VecArray#divWithVec1s</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    this
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="VecArray.html">VecArray</a></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="exp"><span class="type-signature"></span>exp(b, c)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Exponentiates vectors from an array with a scalar, storing the result in this array. For scaling with factors stored in an array, see <a href="VecArray.html#mulAll">mulAll</a>.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>b</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="VecArray.html">VecArray</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array of vectors to scale. Its length must be identical to this array's length.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>c</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="VecArray.html">VecArray</a></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Exponent.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="VecArray.html#exp">VecArray#exp</a>
 			</li>
 		</ul>
 	</dd>
@@ -2253,7 +2951,7 @@
 
     
     <div class="description">
-        Multipies vectors from an array with a scalar, storing the result in this array. For scaling with factors stored in an array, see mulStretch.
+        Multipies vectors from an array with a scalar, storing the result in this array. For scaling with factors stored in an array, see <a href="VecArray.html#mulAll">mulAll</a>.
     </div>
     
 
@@ -2430,6 +3128,146 @@
             
 <hr>
 <dt>
+    <h4 class="name" id="set"><span class="type-signature"></span>set(data)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets the value of the vector array from another WebGLMath vector, vector array, matrix, or matrix array object, or an array of numbers.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;number></span>
+|
+
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Input data.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+	<dt class="inherited-from method-doc-label method-doc-details-label">Inherited From:</dt>
+	<dd class="inherited-from">
+		<ul class="dummy">
+			<li>
+				<a href="VecArray.html#set">VecArray#set</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
     <h4 class="name" id="sub"><span class="type-signature"></span>sub(b, c)</h4>
     
     
@@ -2438,7 +3276,7 @@
 
     
     <div class="description">
-        Substracts vectors from the two argument arrays, storing the result in this array.
+        Subtracts vectors from the two argument arrays, storing the result in this array.
     </div>
     
 
@@ -3020,7 +3858,7 @@
 
     
     <div class="description">
-        Fills this vector with vectors from the argument vector, augmented by a 0 to get a homogeneous direction vector, transformed by the argument 4x4 matrix. The vectors are cosidered row vectors, multiplied from the right with a matrix laid out in column-major order.
+        Fills this array with vectors from the argument array, augmented by a 0 to get a homogeneous direction vector, transformed by the argument 4x4 matrix. The vectors are cosidered row vectors, multiplied from the right with a matrix laid out in column-major order.
     </div>
     
 
@@ -3172,7 +4010,7 @@
 
     
     <div class="description">
-        Fills this vector with vectors from the argument vector, augmented by a 1 to get a homogeneous position vector, transformed by the argument 4x4 matrix. The vectors are cosidered row vectors, multiplied from the right with a matrix laid out in column-major order.
+        Fills this array with vectors from the argument array, augmented by a 1 to get a homogeneous position vector, transformed by the argument 4x4 matrix. The vectors are cosidered row vectors, multiplied from the right with a matrix laid out in column-major order.
     </div>
     
 
@@ -3362,7 +4200,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
 	
-		on 2017-03-09T23:10:53+01:00
+		on 2018-01-24T10:36:39+01:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
