@@ -1,0 +1,92 @@
+Shader.source[document.currentScript.src.split('js/shaders/')[1]] = `
+precision highp float;
+
+varying vec3 rayDir;
+varying vec2 texCoord;
+uniform vec3 eyePos;
+uniform samplerCube envmapTexture;
+
+uniform mat4 quadrics[64];
+
+float intersectClippedQuadric(mat4 A, mat4 B, vec4 e, vec4 d) {
+  float a = dot( d, A * d);
+  float b = dot( e, A * d) + dot(d, A * e );
+  float c = dot( e, A * e );
+
+  float discr = b * b - 4.0 * a * c;
+  if (discr < 0.0)
+    return -1.0;
+  float sqrt_discr = sqrt( discr );
+  float t1 = (-b + sqrt_discr)/2.0/a;
+  float t2 = (-b - sqrt_discr)/2.0/a;
+
+  vec4 hit1 = e + d * t1;
+  vec4 hit2 = e + d * t2;
+  if (dot( hit1, B * hit1) > 0.0)
+    t1 = -1.0;
+  if (dot( hit2, B * hit2) > 0.0)
+    t2 = -1.0;
+
+  float t = (t1<t2)?t1:t2;
+  if (t < 0.0)
+    t = (t1<t2)?t2:t1;
+  return t;
+} 
+
+vec3 getQuadricNormal(mat4 A, vec4 hit) {
+  return normalize((A*hit).xyz + (hit*A).xyz);
+} 
+
+bool findBestHit(in vec4 e, in vec4 d, out float bestT, out int bestIndex, out mat4 bestQuadric) {
+  bestT = 10000.0;
+  for (int i = 0; i < 17; i++) {
+    float t = intersectClippedQuadric(quadrics[2*i], quadrics[2*i+1], e, d);
+    if (0.0 < t && t < bestT) {
+      bestT = t;
+      bestIndex = i;
+      bestQuadric = quadrics[2*i];
+    }
+  } 
+  return bestT < 9999.0; 
+}
+
+void main(){    
+  // ray origin
+  vec4 e = vec4(eyePos, 1);
+  // ray direction
+  vec4 d = vec4(normalize(rayDir), 0);
+
+  vec4 wprod = vec4(1, 1, 1, 1);
+    
+  vec3 radiance = vec3(0, 0, 0);
+  for(int iBounce = 0;iBounce < 15; iBounce++) { 
+    float bestT;
+    int bestIndex;
+    mat4 bestQuadric;
+    if( findBestHit(e, d, bestT, bestIndex, bestQuadric) ) {
+      vec4 r = e + d * bestT;
+      vec3 normal = getQuadricNormal(bestQuadric, r);
+      float cosAlpha = dot(normal, d.xyz);
+      if(cosAlpha > 0.0) { // flip normal to face ray origin
+        normal = -normal;
+      } else {
+        cosAlpha = -cosAlpha;
+      }
+      d.xyz = reflect(d.xyz, normal);
+
+      wprod.rgb *= vec3(0.85, 0.87, 0.85);
+      // offset ray origin to avoid acne
+      if(dot(d.xyz, normal) > 0.0) {
+        e = r + vec4(normal, 0) * 0.01;
+      } else {
+        e = r - vec4(normal, 0) * 0.01;
+      }
+    } else {
+      radiance += textureCube(envmapTexture, d.xyz ).rgb * wprod.rgb;
+      break;
+    }
+  }    
+  gl_FragColor = vec4(radiance, 1);
+}
+
+`;
