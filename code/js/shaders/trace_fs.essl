@@ -3,10 +3,16 @@ precision highp float;
 
 varying vec3 rayDir;
 varying vec2 texCoord;
+uniform float randoms[15];
 uniform vec3 eyePos;
 uniform samplerCube envmapTexture;
 
 uniform mat4 quadrics[64];
+
+const float PI   = 3.14159265358979323846264; // PI
+const float PHIG = 1.61803398874989484820459 * 00000.1; // Golden Ratio   
+const float PIG  = 3.14159265358979323846264 * 00000.1; // PI
+const float SQ2G = 1.41421356237309504880169 * 10000.0; // Square Root of Two
 
 float intersectClippedQuadric(mat4 A, mat4 B, vec4 e, vec4 d) {
   float a = dot( d, A * d);
@@ -50,7 +56,20 @@ bool findBestHit(in vec4 e, in vec4 d, out float bestT, out int bestIndex, out m
   return bestT < 9999.0; 
 }
 
-void main(){    
+vec3 sampleDiffuse(vec3 normal, vec4 rnd){
+  vec3 binormal = cross(normal, vec3(1, 0, 0));
+  vec3 tangent = cross(normal, binormal);
+
+  return binormal * sqrt(1.0 - rnd.y) * cos(2.0 * PI * rnd.x)
+        + tangent * sqrt(1.0 - rnd.y) * sin(2.0 * PI * rnd.x)
+        + normal * sqrt(rnd.y); 
+}
+
+float goldRand(in vec3 seed){
+  return fract(sin(dot(seed.xy*(seed.z+PHIG), vec2(PHIG, PIG)))*SQ2G);
+}
+
+void main(){
   // ray origin
   vec4 e = vec4(eyePos, 1);
   // ray direction
@@ -72,7 +91,9 @@ void main(){
       } else {
         cosAlpha = -cosAlpha;
       }
-      d.xyz = reflect(d.xyz, normal);
+      
+      float perPixelNoise = goldRand(vec3(texCoord * 1024.0, 1.0));
+      d.xyz = sampleDiffuse(normal, fract(randoms[iBounce] + vec4(perPixelNoise, perPixelNoise, perPixelNoise, perPixelNoise)));
 
       wprod.rgb *= vec3(0.85, 0.87, 0.85);
       // offset ray origin to avoid acne

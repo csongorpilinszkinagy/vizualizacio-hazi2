@@ -4,7 +4,7 @@ const Scene = function(gl) {
   this.fsTrace = new Shader(gl, gl.FRAGMENT_SHADER, "trace_fs.essl");
   this.fsShow = new Shader(gl, gl.FRAGMENT_SHADER, "show_fs.essl");  
   this.traceProgram = new Program(gl, this.vsRaydir, this.fsTrace);
-  this.showProgram = new Program(gl, this.vsRaydir, this.fsShow);  
+  this.showProgram = new Program(gl, this.vsRaydir, this.fsShow);    
   this.traceProgram.envmapTexture.set(new
     TextureCube(gl, [
       "media/posx.jpg",
@@ -25,6 +25,7 @@ const Scene = function(gl) {
 };
 
 Scene.prototype.resize = function(gl, width, height) {
+  
 };
 
 Scene.prototype.update = function(gl, keysPressed) {
@@ -49,6 +50,15 @@ Scene.prototype.update = function(gl, keysPressed) {
 
   this.traceProgram.rayDirMatrix.set(this.camera.rayDirMatrix);
   this.traceProgram.eyePos.set(this.camera.position); 
+  
+  window.crypto.getRandomValues(this.randoms);
+  for(let i=0; i<64; i++) {
+    this.traceProgram.randoms.at(i).set(
+      this.randoms[i*4+0] / 4294967295,
+      this.randoms[i*4+1] / 4294967295,
+      this.randoms[i*4+2] / 4294967295,
+      this.randoms[i*4+3] / 4294967295);
+  }
 
   for(let i=1; i<17; i++) {
     const sphere = new ClippedQuadric(
