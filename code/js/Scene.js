@@ -25,7 +25,22 @@ const Scene = function(gl) {
 };
 
 Scene.prototype.resize = function(gl, width, height) {
-  
+  this.fb = [gl.createFramebuffer(), gl.createFramebuffer()];
+  this.tex = [gl.createTexture(), gl.createTexture()];
+  for(let i=0; i<2; i++) {
+    gl.bindTexture(gl.TEXTURE_2D, this.tex[i]);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, width,
+                  height, 0, gl.RGB, gl.UNSIGNED_BYTE, null);
+
+    gl.bindFramebuffer(gl.FRAMEBUFFER, this.fb[i]);
+    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D,
+                            this.tex[i], 0);
+  }
+  gl.bindFramebuffer(gl.FRAMEBUFFER, null);
 };
 
 Scene.prototype.update = function(gl, keysPressed) {
@@ -49,7 +64,7 @@ Scene.prototype.update = function(gl, keysPressed) {
   ground.scale(15, 2, 15);
 
   this.traceProgram.rayDirMatrix.set(this.camera.rayDirMatrix);
-  this.traceProgram.eyePos.set(this.camera.position); 
+  this.traceProgram.eyePos.set(this.camera.position);
   
   window.crypto.getRandomValues(this.randoms);
   for(let i=0; i<64; i++) {
@@ -67,9 +82,23 @@ Scene.prototype.update = function(gl, keysPressed) {
     sphere.setUnitSphere();
     sphere.translate(Math.cos(i*0.3)*Math.sqrt(i)*3, 0, Math.sin(i*0.3)*Math.sqrt(i)*3);
   }
- 
+
+  this.showProgram.showTexture.set(this.tex[0]);
+  this.traceProgram.prevImage.set(this.tex[0]);  
+
+  gl.bindFramebuffer(gl.FRAMEBUFFER, this.fb[1]);
+
   this.traceProgram.commit();
   this.quadGeometry.draw();
+
+  gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+
+  this.showProgram.commit();
+  this.quadGeometry.draw();
+
+  this.tex.reverse();
+  this.fb.reverse();
+
 };
 
 

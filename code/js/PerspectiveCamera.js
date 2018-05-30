@@ -57,7 +57,7 @@ PerspectiveCamera.prototype.updateProjMatrix = function(){
   this.rayDirMatrix.set().translate(this.position).mul(this.viewMatrix).mul(this.projMatrix).invert();                       
 }; 
   
-PerspectiveCamera.prototype.move = function(dt, keysPressed) { 
+PerspectiveCamera.prototype.move = function(dt, keysPressed) {
   if(this.isDragging){ 
     this.yaw -= this.mouseDelta.x * 0.002; 
     this.pitch -= this.mouseDelta.y * 0.002; 

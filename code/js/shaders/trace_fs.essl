@@ -3,9 +3,10 @@ precision highp float;
 
 varying vec3 rayDir;
 varying vec2 texCoord;
-uniform float randoms[15];
+uniform float randoms[64*4];
 uniform vec3 eyePos;
 uniform samplerCube envmapTexture;
+uniform sampler2D prevImage;
 
 uniform mat4 quadrics[64];
 
@@ -78,7 +79,7 @@ void main(){
   vec4 wprod = vec4(1, 1, 1, 1);
     
   vec3 radiance = vec3(0, 0, 0);
-  for(int iBounce = 0;iBounce < 15; iBounce++) { 
+  for(int iBounce = 0;iBounce < 3; iBounce++) { 
     float bestT;
     int bestIndex;
     mat4 bestQuadric;
@@ -93,7 +94,7 @@ void main(){
       }
       
       float perPixelNoise = goldRand(vec3(texCoord * 1024.0, 1.0));
-      d.xyz = sampleDiffuse(normal, fract(randoms[iBounce] + vec4(perPixelNoise, perPixelNoise, perPixelNoise, perPixelNoise)));
+      d.xyz = sampleDiffuse(normal, fract(perPixelNoise + vec4(randoms[iBounce*4], randoms[iBounce*4+1], randoms[iBounce*4+2], randoms[iBounce*4+3])));
 
       wprod.rgb *= vec3(0.85, 0.87, 0.85);
       // offset ray origin to avoid acne
@@ -107,7 +108,8 @@ void main(){
       break;
     }
   }    
-  gl_FragColor = vec4(radiance, 1);
+  //gl_FragColor = vec4(radiance, 1);
+  gl_FragColor = vec4(radiance * 0.05 + texture2D(prevImage, texCoord).rgb * 0.95,1);
 }
 
 `;
